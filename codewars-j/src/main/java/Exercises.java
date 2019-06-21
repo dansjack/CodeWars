@@ -2,6 +2,9 @@ import java.util.*;
 
 public class Exercises {
     public static void main(String[] args) {
+        // sortArray()
+
+        // high()
         /*
         Write simple camelCase method for strings.
         All words must have their first letter
@@ -10,10 +13,14 @@ public class Exercises {
         camelCase("hello case"); // => "HelloCase"
 
         camelCase("camel case word"); // => "CamelCaseWord"
-         */
         String t1 = "man i need a taxi up to ubud";
 
         System.out.println(high(t1));
+        */
+
+        // countSmileys()
+
+        // countPassengers()
 
     }
 
@@ -125,6 +132,34 @@ public class Exercises {
 
         // return word at highest score's index
         return sArray[maxIdx];
+    }
+
+    public static int countSmileys(List<String> arr) {
+        int count = 0;
+        for (String el :
+                arr) {
+            if ((el.charAt(0) == ':' ||
+                    el.charAt(0) == ';') &&
+                    (el.charAt(el.length() - 1) == ')' ||
+                            el.charAt(el.length() - 1) == 'D'))  {
+                if (el.length() == 3 &&
+                        (el.charAt(1) == '-' ||
+                                el.charAt(1) == '~')) {
+                    count++;
+                } else if (el.length() == 2){
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+
+    public static int countPassengers(ArrayList<int[]> stops) {
+        int count = 0;
+        for(int[] stop : stops) {
+            count += (stop[0] - stop[1]);
+        }
+        return count;
     }
 
 
